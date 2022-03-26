@@ -3,8 +3,8 @@ const cors = require("cors");
 
 const app = express();
 
-const { randomCompliment, randomFortune } = require("./controllers/controller")
-const { getStudents, addStudents, updateStudents, deleteStudents } = require('./controllers/studentController')
+const { randomCompliment, randomFortune } = require("./controllers/controller.js")
+const { getStudents, addStudent, updateStudents, deleteStudents } = require('./controllers/studentController.js')
 
 app.use(cors());
 
@@ -16,9 +16,9 @@ app.get("/api/fortune", randomFortune)
 
 
 app.get('/api/students', getStudents),
-app.post('/api/students', addStudents)
-app.put('/api/students/:id', updateStudents)
-app.delete('/api/students/:id', deleteStudents)
+app.post('/api/students', addStudent),
+app.put('/api/students/:id', updateStudents),
+app.delete('/api/students/:id', deleteStudents),
 
 
 app.listen(4000, () => console.log("Server running on 4000"));

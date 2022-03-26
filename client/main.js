@@ -1,8 +1,6 @@
 const complimentBtn = document.getElementById('complimentButton')
 const fortuneBtn = document.getElementById('fortuneButton')
 const studentContainer = document.querySelector('#student-ct')
-let userInput = document.querySelector('#std-input')
-let submitBtn = document.querySelector('#submitbtn')
 
 
 const baseURL = "http://localhost:4000/api"
@@ -26,8 +24,8 @@ const renderStudents = (data) => {
 const complimentUser = () =>{
     axios.get(`${baseURL}/compliment`)
     .then((response) => {
-        const compliment = response.data;
-        alert(compliment);
+        const compliment = response.data
+        alert(compliment)
     });
 };
 
@@ -42,12 +40,17 @@ const giveFortune = () =>{
 const allStudents = () =>{
     axios.get(`${baseURL}/students`)
     .then((res) =>{
-        
+        console.log(res.data)
         renderStudents(res.data);
     })
     .catch((err) => console.log(err));
 }
 
+window.addEventListener('DOMContentLoaded', allStudents)
+
+
+let userInput = document.querySelector('#std-input')
+let submitBtn = document.querySelector('#submitBtn')
 
 const addNewStudent = () => {
     //get users input
@@ -72,7 +75,7 @@ const handleDelete = (event) => {
     })
 }
 
+complimentBtn.addEventListener('click', complimentUser)
 fortuneBtn.addEventListener('click', giveFortune)
-window.addEventListener('DOMContentLoaded', allStudents)
-submitBtn.addEventListener('click', addNewStudent);
-complimentBtn.addEventListener('click', complimentUser);
+submitBtn.addEventListener('click', addNewStudent)
+

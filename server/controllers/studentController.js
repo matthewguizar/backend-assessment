@@ -23,7 +23,7 @@ let globalID = 4
          res.status(200).send(students)
      },
 
-     addStudents: (req, res) => {
+     addStudent: (req, res) => {
         const { studentName } = req.body
         const newUser =  {
             id:globalID,
