@@ -1,3 +1,5 @@
+
+
 const complimentBtn = document.getElementById('complimentButton')
 const fortuneBtn = document.getElementById('fortuneButton')
 const studentContainer = document.querySelector('#student-ct')
@@ -74,6 +76,14 @@ const handleDelete = (event) => {
         renderStudents(res.data)
     })
 }
+
+axios.post(`${baseURL}/students`, {
+    name: 'joejon',
+
+})
+.then(function (response){
+    console.log(studentContainer)
+})
 
 complimentBtn.addEventListener('click', complimentUser)
 fortuneBtn.addEventListener('click', giveFortune)
